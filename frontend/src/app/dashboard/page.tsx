@@ -22,6 +22,7 @@ import ClientIcon from "../../../public/svg/client.svg";
 import WorkerIcon from "../../../public/svg/worker.svg";
 import TaskIcon from "../../../public/svg/task.svg";
 import CalendarIcon from "../../../public/svg/calendar.svg";
+import SearchIcon from "../../../public/svg/search.svg";
 
 export default function Dashboard() {
   return (
@@ -38,32 +39,39 @@ export default function Dashboard() {
           <SideMenu>
             <div className="row-start-2 row-span-6 bg-white w-full h-full rounded-lg flex justify-center items-center justify-self-center">
               <ul className="w-full h-full flex flex-col justify-evenly items-center">
-                <li className="flex">
+                <li className="flex cursor-pointer">
                   <Image src={HomeIcon} alt="Home Icon" />
                   <p className="hidden ml-2 sm:block">Home</p>
                 </li>
-                <li className="flex">
+                <li className="flex cursor-pointer">
                   <Image src={ClientIcon} alt="Client Icon" />
                   <p className="hidden ml-2 sm:block">Client</p>
                 </li>
-                <li className="flex">
+                <li className="flex cursor-pointer">
                   <Image src={WorkerIcon} alt="Worker Icon" />
                   <p className="hidden ml-2 sm:block">Workers</p>
                 </li>
-                <li className="flex">
+                <li className="flex cursor-pointer">
                   <Image src={TaskIcon} alt="Task Icon" />
                   <p className="hidden ml-2 sm:block">Tasks</p>
                 </li>
-                <li className="flex">
+                <li className="flex cursor-pointer">
                   <Image src={CalendarIcon} alt="Calendar Icon" />
-                  <p className="hidden ml-2 sm:block">Home</p>
+                  <p className="hidden ml-2 sm:block">Calendar</p>
                 </li>
               </ul>
             </div>
           </SideMenu>
           <SearchBar>
-            <div className="col-start-2 col-span-3 bg-white w-full h-32 text-center rounded-lg flex justify-center items-center justify-self-center self-end">
-              <h1>Search</h1>
+            <div className="col-start-2 col-span-3 bg-white w-full h-32 rounded-lg flex items-center ">
+              <div className="ml-6 w-1/2 border-2 border-gray-200 rounded-full flex hover:border-emerald-700">
+                <Image className="ml-6" src={SearchIcon} alt="Search Icon" />
+                <input
+                  className="w-full rounded-full ml-2 p-4 outline-none"
+                  type="search"
+                  placeholder="Search"
+                />
+              </div>
             </div>
           </SearchBar>
           <Tasks>

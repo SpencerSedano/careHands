@@ -41,7 +41,7 @@ export default function Navbar() {
                   <a href="/dashboard">Dashboard</a>
                 </li>
                 <li>
-                  <a href="/career">Careers</a>
+                  <a href="/careers">Careers</a>
                 </li>
                 <li>
                   <a href="/signup">Sign Up</a>
@@ -69,7 +69,7 @@ export default function Navbar() {
               <a href="/dashboard">Dashboard</a>
             </li>
             <li className="p-2">
-              <a href="/career">Careers</a>
+              <a href="/careers">Careers</a>
             </li>
           </div>
           {/* Sign Up and Login */}
