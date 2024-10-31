@@ -74,8 +74,8 @@ export default function Navbar() {
           </div>
           {/* Sign Up and Login */}
           <div className="w-full flex justify-end items-center">
-            <li className="text-center sm:mr-2 lg:mr-6 bg-emerald-700 sm:p-1 lg:p-4">
-              <a className="text-white " href="/signup">
+            <li className="cursor-pointer  text-center sm:mr-2 lg:mr-6 sm:p-2 lg:p-4 bg-darkbrown rounded-lg">
+              <a className="text-white sm:p-2 lg:p-4 " href="/signup">
                 Sign Up
               </a>
             </li>

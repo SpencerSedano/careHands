@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{DE4338F4-A74F-4521-BDE5-006FE7D4C219}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CareHands", "backend\CareHands\CareHands.csproj", "{5C490753-B0A7-43A2-8120-5F4E0B84CE78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CareHands", "CareHands\CareHands.csproj", "{5C490753-B0A7-43A2-8120-5F4E0B84CE78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

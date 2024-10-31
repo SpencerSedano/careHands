@@ -20,7 +20,7 @@ export default function Hero() {
               architecto quae. Animi ad magni deleniti enim nemo obcaecati.
             </p>
           </div>
-          <div className="cursor-pointer w-1/2 mt-6 flex justify-center justify-self-center bg-emerald-700 p-4">
+          <div className="cursor-pointer md:w-1/4 mt-6 flex justify-center justify-self-center bg-darkbrown p-4 rounded-lg">
             <p className="text-white">Start Now!</p>
           </div>
         </div>
