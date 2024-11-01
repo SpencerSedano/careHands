@@ -1,3 +1,8 @@
+"use client";
+
+// React
+import { useRef } from "react";
+
 // Components
 import LoginWorker from "@/app/components/LoginWorker";
 import SideMenu from "../components/SideMenu";
@@ -25,6 +30,19 @@ import CalendarIcon from "../../../public/svg/calendar.svg";
 import SearchIcon from "../../../public/svg/search.svg";
 
 export default function Dashboard() {
+  const myRef = useRef<HTMLDivElement>(null);
+
+  function handleFocus() {
+    if (myRef.current) {
+      myRef.current.style.border = "2px solid #047857";
+    }
+  }
+  function handleBlur() {
+    if (myRef.current) {
+      myRef.current.style.border = "2px solid #D1D5DB";
+    }
+  }
+
   return (
     <>
       <Navbar />
@@ -64,12 +82,17 @@ export default function Dashboard() {
           </SideMenu>
           <SearchBar>
             <div className="col-start-2 col-span-3 bg-white w-full h-32 rounded-lg flex items-center ">
-              <div className="ml-6 w-1/2 border-2 border-gray-200 rounded-full flex hover:border-emerald-700">
+              <div
+                className="ml-6 w-1/2 border-2 border-gray-200 rounded-full flex"
+                ref={myRef}
+              >
                 <Image className="ml-6" src={SearchIcon} alt="Search Icon" />
                 <input
                   className="w-full rounded-full ml-2 p-4 outline-none"
                   type="search"
                   placeholder="Search"
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
                 />
               </div>
             </div>
