@@ -1,6 +1,4 @@
-import Image from "next/image";
-/* import Old1 from "@/app/img/old1.jpg"; */
-import LaococoImage from "../../../public/svg/laococoimage.svg";
+import Old1 from "../assets/img/old1.jpg";
 
 export default function Hero() {
   return (
@@ -21,14 +19,14 @@ export default function Hero() {
             </p>
           </div>
           <div className="cursor-pointer md:w-1/4 mt-6 flex justify-center justify-self-center bg-darkbrown p-4 rounded-lg">
-            <p className="text-white">Start Now!</p>
+            <p className="text-black">Start Now!</p>
           </div>
         </div>
       </main>
-      <div className=" flex justify-center">
-        <Image
-          className="max-w-full"
-          src={LaococoImage}
+      <div className="flex justify-center mt-8">
+        <img
+          className="w-1/3 border-2 border-gray-300 rounded-lg"
+          src={Old1}
           alt="Elderly woman image"
         />
       </div>

@@ -1,7 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./interfaces/Hero";
-
-export default function Home() {
+function App() {
   return (
     <>
       <Navbar />
@@ -9,3 +8,5 @@ export default function Home() {
     </>
   );
 }
+
+export default App;

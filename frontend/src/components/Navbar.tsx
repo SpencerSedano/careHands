@@ -1,9 +1,6 @@
-"use client";
-
 import { useState } from "react";
-import Image from "next/image";
-import BurgerMenu from "../../../public/svg/burgerMenu.svg";
-import X from "../../../public/svg/x.svg";
+import BurgerMenu from "../assets/svg/burgerMenu.svg";
+import X from "../assets/svg/x.svg";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<boolean>(true);
@@ -17,19 +14,18 @@ export default function Navbar() {
     <>
       <nav className="bg-white text-black w-full h-16 font-medium text-1xl  sm:flex items-center">
         {openMenu ? (
-          <Image
+          <img
             className="flex w-9 h-full justify-self-center pointer sm:hidden"
             src={BurgerMenu}
             alt="Burger Menu"
-            priority
             onClick={handleOpenMenu}
           />
         ) : (
           <>
-            <Image
+            <img
               className="h-full flex justify-self-center text-center pointer w-6 sm:hidden"
               src={X}
-              alt="X Menu"
+              alt="X"
               onClick={handleOpenMenu}
             />
             {!openMenu && (

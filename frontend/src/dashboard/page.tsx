@@ -4,7 +4,7 @@
 import { useRef } from "react";
 
 // Components
-import LoginWorker from "@/app/components/LoginWorker";
+import LoginWorker from "../components/LoginWorker";
 import SideMenu from "../components/SideMenu";
 import Tasks from "../components/Tasks";
 import CompletedTasks from "../components/CompletedTasks";
@@ -13,21 +13,18 @@ import WorkersAvailable from "../components/WorkersAvailable";
 import CircleImage from "../components/CircleImage";
 import Elder from "../components/Elder";
 import SearchBar from "../components/SearchBar";
-import Navbar from "@/app/components/Navbar";
-
-// Next
-import Image from "next/image";
+import Navbar from "../components/Navbar";
 
 // Images
-import SpencerImage from "../../../public/img/spencerimg.jpeg";
+import SpencerImage from "../assets/img/spencerimg.jpeg";
 
 // SVG
-import HomeIcon from "../../../public/svg/home.svg";
-import ClientIcon from "../../../public/svg/client.svg";
-import WorkerIcon from "../../../public/svg/worker.svg";
-import TaskIcon from "../../../public/svg/task.svg";
-import CalendarIcon from "../../../public/svg/calendar.svg";
-import SearchIcon from "../../../public/svg/search.svg";
+import HomeIcon from "../assets/svg/home.svg";
+import ClientIcon from "../assets/svg/client.svg";
+import WorkerIcon from "../assets/svg/worker.svg";
+import TaskIcon from "../assets/svg/task.svg";
+import CalendarIcon from "../assets/svg/calendar.svg";
+import SearchIcon from "../assets/svg/search.svg";
 
 export default function Dashboard() {
   const myRef = useRef<HTMLDivElement>(null);
@@ -58,35 +55,35 @@ export default function Dashboard() {
             <div className="row-start-2 row-span-6 bg-white w-full h-full rounded-lg flex justify-center items-center justify-self-center">
               <ul className="w-full h-full flex flex-col justify-evenly items-center">
                 <li className="flex cursor-pointer">
-                  <Image src={HomeIcon} alt="Home Icon" />
+                  <img src={HomeIcon} alt="Home Icon" />
                   <p className="hidden ml-2 sm:block">Home</p>
                 </li>
                 <li className="flex cursor-pointer">
-                  <Image src={ClientIcon} alt="Client Icon" />
+                  <img src={ClientIcon} alt="Client Icon" />
                   <p className="hidden ml-2 sm:block">Client</p>
                 </li>
                 <li className="flex cursor-pointer">
-                  <Image src={WorkerIcon} alt="Worker Icon" />
+                  <img src={WorkerIcon} alt="Worker Icon" />
                   <p className="hidden ml-2 sm:block">Workers</p>
                 </li>
                 <li className="flex cursor-pointer">
-                  <Image src={TaskIcon} alt="Task Icon" />
+                  <img src={TaskIcon} alt="Task Icon" />
                   <p className="hidden ml-2 sm:block">Tasks</p>
                 </li>
                 <li className="flex cursor-pointer">
-                  <Image src={CalendarIcon} alt="Calendar Icon" />
+                  <img src={CalendarIcon} alt="Calendar Icon" />
                   <p className="hidden ml-2 sm:block">Calendar</p>
                 </li>
               </ul>
             </div>
           </SideMenu>
           <SearchBar>
-            <div className="col-start-2 col-span-3 bg-white w-full h-32 rounded-lg flex items-center ">
+            <div className="col-start-2 col-span-3 bg-white w-full h-32 rounded-lg flex items-center">
               <div
                 className="ml-6 w-1/2 border-2 border-gray-200 rounded-full flex"
                 ref={myRef}
               >
-                <Image className="ml-6" src={SearchIcon} alt="Search Icon" />
+                <img className="w-8 ml-6" src={SearchIcon} alt="Search Icon" />
                 <input
                   className="w-full rounded-full ml-2 p-4 outline-none"
                   type="search"
