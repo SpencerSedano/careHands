@@ -43,49 +43,49 @@ export default function Dashboard() {
   return (
     <>
       <Navbar />
-      <div className="bg-gray-100 w-full sm:w-11/12 h-dvh p-6 mt-2 rounded-3xl flex justify-center justify-self-center ">
-        <div className="w-full grid grid-cols-4 grid-rows-6 gap-1 ">
+      <div className="mt-2 flex h-dvh w-full justify-center justify-self-center rounded-3xl bg-gray-100 p-6 sm:w-11/12">
+        <div className="grid w-full grid-cols-4 grid-rows-6 gap-1">
           <LoginWorker>
-            <div className="row-start-1 row-span-1 bg-white w-full h-32 text-center rounded-lg flex flex-col sm:flex sm:flex-row justify-center items-center justify-self-center self-end">
+            <div className="row-span-1 row-start-1 flex h-32 w-full flex-col items-center justify-center self-end rounded-lg bg-white text-center sm:flex sm:flex-row">
               <CircleImage image={SpencerImage} />
-              <p className="w-1/2 ml-2 text-sm font-bold">Spencer Sedano</p>
+              <p className="ml-2 w-1/2 text-sm font-bold">Spencer Sedano</p>
             </div>
           </LoginWorker>
           <SideMenu>
-            <div className="row-start-2 row-span-6 bg-white w-full h-full rounded-lg flex justify-center items-center justify-self-center">
-              <ul className="w-full h-full flex flex-col justify-evenly items-center">
+            <div className="row-span-6 row-start-2 flex h-full w-full items-center justify-center justify-self-center rounded-lg bg-white">
+              <ul className="flex h-full w-full flex-col items-center justify-evenly">
                 <li className="flex cursor-pointer">
                   <img src={HomeIcon} alt="Home Icon" />
-                  <p className="hidden ml-2 sm:block">Home</p>
+                  <p className="ml-2 hidden sm:block">Home</p>
                 </li>
                 <li className="flex cursor-pointer">
                   <img src={ClientIcon} alt="Client Icon" />
-                  <p className="hidden ml-2 sm:block">Client</p>
+                  <p className="ml-2 hidden sm:block">Client</p>
                 </li>
                 <li className="flex cursor-pointer">
                   <img src={WorkerIcon} alt="Worker Icon" />
-                  <p className="hidden ml-2 sm:block">Workers</p>
+                  <p className="ml-2 hidden sm:block">Workers</p>
                 </li>
                 <li className="flex cursor-pointer">
                   <img src={TaskIcon} alt="Task Icon" />
-                  <p className="hidden ml-2 sm:block">Tasks</p>
+                  <p className="ml-2 hidden sm:block">Tasks</p>
                 </li>
                 <li className="flex cursor-pointer">
                   <img src={CalendarIcon} alt="Calendar Icon" />
-                  <p className="hidden ml-2 sm:block">Calendar</p>
+                  <p className="ml-2 hidden sm:block">Calendar</p>
                 </li>
               </ul>
             </div>
           </SideMenu>
           <SearchBar>
-            <div className="col-start-2 col-span-3 bg-white w-full h-32 rounded-lg flex items-center">
+            <div className="col-span-3 col-start-2 flex h-32 w-full flex-col justify-center self-end rounded-lg bg-white">
               <div
-                className="ml-6 w-1/2 border-2 border-gray-200 rounded-full flex"
+                className="ml-6 flex w-1/2 rounded-full border-2 border-gray-200"
                 ref={myRef}
               >
-                <img className="w-8 ml-6" src={SearchIcon} alt="Search Icon" />
+                <img className="ml-6 w-8" src={SearchIcon} alt="Search Icon" />
                 <input
-                  className="w-full rounded-full ml-2 p-4 outline-none"
+                  className="ml-2 w-full rounded-full p-4 outline-none"
                   type="search"
                   placeholder="Search"
                   onFocus={handleFocus}
@@ -95,28 +95,28 @@ export default function Dashboard() {
             </div>
           </SearchBar>
           <Tasks>
-            <div className="row-start-2 row-span-3 bg-white w-full h-full rounded-lg flex justify-center items-center justify-self-center">
+            <div className="row-span-3 row-start-2 flex h-full w-full items-center justify-center justify-self-center rounded-lg bg-white">
               <h1>Tasks</h1>
             </div>
           </Tasks>
           <Elder>
-            <div className="row-start-5 row-span-2 col-span-2 bg-white w-full h-full rounded-lg flex justify-center items-center justify-self-center">
+            <div className="col-span-2 row-span-2 row-start-5 flex h-full w-full items-center justify-center justify-self-center rounded-lg bg-white">
               <h1>Elder</h1>
             </div>
           </Elder>
           <CompletedTasks>
-            <div className="row-start-2 row-span-3 bg-white w-full h-full rounded-lg flex justify-center items-center justify-self-center">
+            <div className="row-span-3 row-start-2 flex h-full w-full items-center justify-center justify-self-center rounded-lg bg-white">
               <h1>Completed Tasks</h1>
             </div>
           </CompletedTasks>
           <Calendar>
-            <div className="row-start-2 row-span-3 bg-white w-full h-full rounded-lg flex justify-center items-center justify-self-center">
+            <div className="row-span-3 row-start-2 flex h-full w-full items-center justify-center justify-self-center rounded-lg bg-white">
               <h1>Calendar</h1>
             </div>
           </Calendar>
 
           <WorkersAvailable>
-            <div className="row-start-5 row-span-2 bg-white w-full h-full rounded-lg flex justify-center items-center justify-self-center">
+            <div className="row-span-2 row-start-5 flex h-full w-full items-center justify-center justify-self-center rounded-lg bg-white">
               <h1>Workers Available</h1>
             </div>
           </WorkersAvailable>

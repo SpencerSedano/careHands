@@ -3,12 +3,12 @@ import Old1 from "../assets/img/old1.jpg";
 export default function Hero() {
   return (
     <>
-      <main className="relative z-0 flex flex-col items-center justify-center w-3/4 mx-auto">
-        <div className=" w-full w-1/2 p-4 text-center">
-          <h1 className="text-5xl m-2 font-bold p-4 mt-12">
+      <main className="relative z-0 mx-auto flex w-3/4 flex-col items-center justify-center">
+        <div className="w-1/2 w-full p-4 text-center">
+          <h1 className="m-2 mt-12 p-4 text-5xl font-bold">
             The system you need for your company.
           </h1>
-          <div className="w-full flex justify-center">
+          <div className="flex w-full justify-center">
             <p className="md:w-2/3">
               We have the latest technology to help you care for your loved
               ones. In addition, we have a team of professionals who are ready
@@ -18,14 +18,14 @@ export default function Hero() {
               architecto quae. Animi ad magni deleniti enim nemo obcaecati.
             </p>
           </div>
-          <div className="cursor-pointer md:w-1/4 mt-6 flex justify-center justify-self-center bg-darkbrown p-4 rounded-lg">
-            <p className="text-black">Start Now!</p>
+          <div className="bg-darkbrown mt-6 flex cursor-pointer justify-center justify-self-center rounded-lg p-4 md:w-1/4">
+            <p className="text-white">Start Now!</p>
           </div>
         </div>
       </main>
-      <div className="flex justify-center mt-8">
+      <div className="mt-8 flex justify-center">
         <img
-          className="w-1/3 border-2 border-gray-300 rounded-lg"
+          className="w-1/3 rounded-lg border-2 border-gray-300"
           src={Old1}
           alt="Elderly woman image"
         />
