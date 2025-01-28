@@ -1,30 +1,37 @@
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CareHands.database;
 
-namespace CareHands.Controllers
+namespace CareHands.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class CreateAccount : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class CreateAccount : ControllerBase
+    private readonly ApplicationDbContext _context;
+
+    public CreateAccount(ApplicationDbContext context)
     {
-        private readonly ApplicationDbContext _context;
+        _context = context;
+    }
 
-        public CreateAccount(ApplicationDbContext context)
+    [HttpPost]
+    public IActionResult NewWorker([FromBody] Worker worker)
+    {
+        _context.Workers.Add(worker);
+        _context.SaveChanges();
+        return Ok(worker);
+    }
+
+    [HttpGet]
+    public IActionResult GetAllWorkers()
+    {
+        if (_context.Workers.Any())
         {
-            _context = context;
+            return Ok(_context.Workers.ToList());
         }
-
-        [HttpPost]
-        public IActionResult NewWorker([FromBody] Worker worker) 
+        else
         {
-            _context.Workers.Add(worker);
-            _context.SaveChanges();
-            return Ok(worker);
+            return NotFound();
         }
     }
 }

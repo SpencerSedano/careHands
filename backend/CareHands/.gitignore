@@ -273,3 +273,4 @@ __pycache__/
 
 # Spencer Config
 .env
+appsettings.Development.json
