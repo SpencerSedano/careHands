@@ -12,6 +12,8 @@ var app = builder.Build();
 
 app.MapControllers();
 
+// app.UseExceptionHandler("/error");
+
 app.MapGet("/", () => "Hello World!");
 
 app.Run();

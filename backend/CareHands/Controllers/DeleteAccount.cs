@@ -14,6 +14,7 @@ public class DeleteAccount : ControllerBase
         _context = context;
     }
 
+    //Delete One by One
     [HttpDelete("{id:int}")]
     public IActionResult DeleteWorker(int id)
     {
@@ -24,6 +25,17 @@ public class DeleteAccount : ControllerBase
         }
         
         _context.Workers.Remove(workerToDelete);
+        _context.SaveChanges();
+        
+        return NoContent();
+    }
+    
+    //WARNING
+    //Delete Everything
+    [HttpDelete("DeleteAllWorkers")]
+    public IActionResult DeleteAllWorkers()
+    {
+        _context.Workers.RemoveRange(_context.Workers);
         _context.SaveChanges();
         
         return NoContent();
