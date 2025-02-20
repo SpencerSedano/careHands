@@ -1,170 +1,81 @@
-import SignUpImage from "../assets/img/signup.jpg";
-import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 
 export default function Signup() {
-    const [newId, setNewId] = useState<number>(0);
-    const [workerId, setWorkerId] = useState<number>(0);
-    const [name, setName] = useState<string>("");
-    const [lastname, setLastName] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    const [phoneNumber, setPhoneNumber] = useState<string>("");
-    const [address, setAddress] = useState<string>("");
-    const [role, setRole] = useState<string>("");
+  return (
+    <>
+      <Navbar />
+      <div className="flex h-dvh w-full items-center justify-center">
+        <form className="flex min-h-96 w-150 flex-col items-center justify-center rounded-md border-2 p-2">
+          <h2 className="m-2 text-4xl">Sign up</h2>
+          <p className="flex-wrap text-center text-sm">
+            Caring with your heart, mind, and hands. <br /> Let us help organize
+            to deliver better results
+          </p>
+          <input
+            className="m-2 w-48 border-b-2 p-2 outline-none"
+            type="text"
+            placeholder="Id Letter"
+          />
+          <input
+            className="m-2 w-48 border-b-2 p-2 outline-none"
+            type="text"
+            placeholder="Your ID Number"
+          />
+          <input
+            className="m-2 w-48 border-b-2 p-2 outline-none"
+            type="text"
+            placeholder="Name"
+          />
+          <input
+            className="m-2 w-48 border-b-2 p-2 outline-none"
+            type="text"
+            placeholder="Last Name"
+          />
+          <input
+            className="m-2 w-48 border-b-2 p-2 outline-none"
+            type="text"
+            placeholder="Age"
+          />
+          <input
+            className="m-2 w-48 border-b-2 p-2 outline-none"
+            type="text"
+            placeholder="Phone Number"
+          />
+          <input
+            className="m-2 w-48 border-b-2 p-2 outline-none"
+            type="text"
+            placeholder="Email"
+          />
+          <label>
+            Choose a role:
+            <select name="role" id="role">
+              <optgroup label="Worker">
+                <option value="caregiver">Caregiver</option>
+                <option value="worker">Worker</option>
+              </optgroup>
+              <optgroup label="Admin">
+                <option value="supervisor">Supervisor</option>
+                <option value="manager">Manager</option>
+                <option value="admin">Administrator</option>
+              </optgroup>
+            </select>
+          </label>
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const worker = {
-            newId,
-            workerId,
-            name,
-            lastname,
-            email,
-            password,
-            phoneNumber,
-            address,
-            role,
-        };
-
-        try {
-            const response = await fetch(
-                "http://localhost:5068/api/CreateAccount",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(worker),
-                },
-            );
-            if (!response.ok) {
-                throw new Error("An error occurred while creating the account");
-            }
-            const data = await response.json();
-            console.log("Success", data);
-        } catch {
-            console.error("An error occurred while creating the account");
-        }
-    };
-
-    return (
-        <>
-            {/* First Container */}
-            <div className="mt-2 flex h-dvh w-full justify-center justify-self-center rounded-3xl bg-gray-50 p-6 sm:w-11/12">
-                {/* First Container Grid */}
-                <div className="grid h-full w-full grid-cols-4 grid-rows-6 gap-1">
-                    {/* Form Container */}
-                    <div className="col-span-2 col-start-1 row-span-6 row-start-1 flex flex-col items-center justify-center">
-                        <h1 className="text-4xl font-bold">
-                            Create an account
-                        </h1>
-                        <p className="mt-6 mb-6">
-                            Already have an account?&nbsp;
-                            <a className="pointer text-sky-500" href="/login">
-                                Log in
-                            </a>
-                        </p>
-                        <form className="" onSubmit={handleSubmit}>
-                            <input
-                                className="p-4"
-                                type="text"
-                                name="worker[id]"
-                                placeholder="Number ID"
-                                required
-                                value={newId}
-                                onChange={(e) =>
-                                    setNewId(Number(e.target.value))
-                                }
-                            />
-                            <input
-                                className="p-4"
-                                type="text"
-                                name="worker[workerId]"
-                                placeholder="ID"
-                                required
-                                value={workerId}
-                                onChange={(e) =>
-                                    setWorkerId(Number(e.target.value))
-                                }
-                            />
-                            <input
-                                className="p-4"
-                                type="text"
-                                name="worker[name]"
-                                placeholder="Name"
-                                required
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                            />
-                            <input
-                                className="p-4"
-                                type="text"
-                                name="worker[lastname]"
-                                placeholder="Last name"
-                                required
-                                value={lastname}
-                                onChange={(e) => setLastName(e.target.value)}
-                            />
-                            <input
-                                className="p-4"
-                                type="email"
-                                name="worker[email]"
-                                placeholder="Email"
-                                required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <input
-                                className="p-4"
-                                type="password"
-                                name="worker[password]"
-                                placeholder="Enter your password"
-                                required
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                            <input
-                                className="p-4"
-                                type="number"
-                                name="worker[phoneNumber]"
-                                placeholder="Phone number"
-                                required
-                                value={phoneNumber}
-                                onChange={(e) => setPhoneNumber(e.target.value)}
-                            />
-                            <input
-                                className="p-4"
-                                type="text"
-                                name="worker[address]"
-                                placeholder="Address"
-                                required
-                                value={address}
-                                onChange={(e) => setAddress(e.target.value)}
-                            />
-                            <input
-                                className="p-4"
-                                type="text"
-                                name="worker[role]"
-                                placeholder="Role"
-                                required
-                                value={role}
-                                onChange={(e) => setRole(e.target.value)}
-                            />
-                            <button className="mt-2 border p-4" type="submit">
-                                Create account
-                            </button>
-                        </form>
-                    </div>
-                    {/* Image Container */}
-                    <div className="col-span-2 col-start-3 h-full w-full">
-                        <img
-                            src={SignUpImage}
-                            alt="Signup"
-                            className="object-cover"
-                        />
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+          <input
+            className="m-2 w-48 border-b-2 p-2 outline-none"
+            type="text"
+            placeholder="Email"
+          />
+          <input
+            className="m-2 w-48 border-b-2 p-2 outline-none"
+            type="password"
+            placeholder="Password"
+          />
+          <button className="bg-darkbrown m-4 w-48 cursor-pointer rounded-md p-6 text-white">
+            New Account
+          </button>
+        </form>
+      </div>
+    </>
+  );
 }
