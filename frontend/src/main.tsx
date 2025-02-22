@@ -11,6 +11,7 @@ import Dashboard from "./dashboard/page.tsx";
 import Login from "./login/page.tsx";
 import Signup from "./signup/page.tsx";
 import Start from "./start/page.tsx";
+import LoggedIn from "./loggedin/page.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
+        <Route path="loggedin" element={<LoggedIn />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
