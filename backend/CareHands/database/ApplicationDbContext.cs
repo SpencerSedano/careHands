@@ -4,10 +4,15 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CareHands.database;
 
-public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+public class ApplicationDbContext : IdentityDbContext<Worker>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
+    }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
     }
 
     public DbSet<Worker> Workers { get; set; }
