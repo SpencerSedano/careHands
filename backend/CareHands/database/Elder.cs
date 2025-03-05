@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace CareHands.database;
 
@@ -21,14 +23,11 @@ public class Elder
     public bool IsDeleted { get; set; } = false;
     
     //Family Info
-    [MaxLength(25)]
-    public string? FamilyMemberName { get; set; }
-    [MaxLength(25)]
-    public string? FamilyMemberLastName { get; set; }
-    [MaxLength(20)]
-    public string? FamilyMemberEmail { get; set; }
-    public int FamilyMemberPhoneNumber { get; set; }
+    public int? FamilyMemberId { get; set; }
     
-    //Foreign Key
-    // public required Worker AssignedWorker { get; set; }
+    
+    //Navigation Property
+    [ForeignKey("FamilyMemberId")]
+    [ValidateNever]
+    public ElderFamilyMember FamilyMember { get; set; }
 }

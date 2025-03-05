@@ -4,6 +4,7 @@ using CareHands.database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CareHands.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250227061855_FourthMigration")]
+    partial class FourthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +43,7 @@ namespace CareHands.Migrations
                         .HasMaxLength(45)
                         .HasColumnType("nvarchar(45)");
 
-                    b.Property<int?>("FamilyMemberId")
+                    b.Property<int>("FamilyMemberId")
                         .HasColumnType("int");
 
                     b.Property<string>("IdLetter")
@@ -114,7 +117,7 @@ namespace CareHands.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ElderId")
+                    b.Property<int>("ElderId")
                         .HasColumnType("int");
 
                     b.Property<string>("IdLetter")
@@ -359,7 +362,9 @@ namespace CareHands.Migrations
                 {
                     b.HasOne("CareHands.database.ElderFamilyMember", "FamilyMember")
                         .WithMany()
-                        .HasForeignKey("FamilyMemberId");
+                        .HasForeignKey("FamilyMemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("FamilyMember");
                 });
@@ -368,7 +373,9 @@ namespace CareHands.Migrations
                 {
                     b.HasOne("CareHands.database.Elder", "Elder")
                         .WithMany()
-                        .HasForeignKey("ElderId");
+                        .HasForeignKey("ElderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()

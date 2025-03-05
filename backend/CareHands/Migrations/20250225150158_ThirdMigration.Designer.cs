@@ -4,6 +4,7 @@ using CareHands.database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CareHands.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250225150158_ThirdMigration")]
+    partial class ThirdMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +43,19 @@ namespace CareHands.Migrations
                         .HasMaxLength(45)
                         .HasColumnType("nvarchar(45)");
 
-                    b.Property<int?>("FamilyMemberId")
+                    b.Property<string>("FamilyMemberEmail")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("FamilyMemberLastName")
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<string>("FamilyMemberName")
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<int>("FamilyMemberPhoneNumber")
                         .HasColumnType("int");
 
                     b.Property<string>("IdLetter")
@@ -70,37 +85,7 @@ namespace CareHands.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FamilyMemberId");
-
                     b.ToTable("Elders");
-                });
-
-            modelBuilder.Entity("CareHands.database.ElderFamilyMember", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(45)
-                        .HasColumnType("nvarchar(45)");
-
-                    b.Property<string>("LastName")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<int>("PhoneNumber")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ElderFamilyMembers");
                 });
 
             modelBuilder.Entity("CareHands.database.Worker", b =>
@@ -114,15 +99,9 @@ namespace CareHands.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ElderId")
-                        .HasColumnType("int");
-
                     b.Property<string>("IdLetter")
                         .IsRequired()
                         .HasColumnType("nvarchar(1)");
-
-                    b.Property<string>("IdentityUserId")
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -149,10 +128,6 @@ namespace CareHands.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ElderId");
-
-                    b.HasIndex("IdentityUserId");
 
                     b.ToTable("Workers");
                 });
@@ -353,30 +328,6 @@ namespace CareHands.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("CareHands.database.Elder", b =>
-                {
-                    b.HasOne("CareHands.database.ElderFamilyMember", "FamilyMember")
-                        .WithMany()
-                        .HasForeignKey("FamilyMemberId");
-
-                    b.Navigation("FamilyMember");
-                });
-
-            modelBuilder.Entity("CareHands.database.Worker", b =>
-                {
-                    b.HasOne("CareHands.database.Elder", "Elder")
-                        .WithMany()
-                        .HasForeignKey("ElderId");
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("IdentityUserId");
-
-                    b.Navigation("Elder");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

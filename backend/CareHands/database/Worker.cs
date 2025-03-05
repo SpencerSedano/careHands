@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace CareHands.database;
 
-public class Worker : IdentityUser
+public class Worker
 {
     //Basic Info
     public int Id { get; set; }
@@ -22,7 +24,19 @@ public class Worker : IdentityUser
     public required string Role { get; set; }
     public bool IsDeleted { get; set; } = false;
     
+    
+    
     //Foreign Key
-    // public required Elder AssignedElder { get; set; }
+    public string? IdentityUserId { get; set; }
+    public int? ElderId { get; set; }
+    
+    //Navigation Property
+    [ForeignKey("IdentityUserId")]
+    [ValidateNever]
+    public IdentityUser User { get; set; }
+    
+    [ForeignKey("ElderId")]
+    [ValidateNever]
+    public Elder Elder { get; set; }
     
 }

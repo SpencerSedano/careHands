@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CareHands.database;
 
-public class ApplicationDbContext : IdentityDbContext<Worker>
+public class ApplicationDbContext : IdentityDbContext<IdentityUser>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
@@ -17,4 +17,5 @@ public class ApplicationDbContext : IdentityDbContext<Worker>
 
     public DbSet<Worker> Workers { get; set; }
     public DbSet<Elder> Elders { get; set; }
+    public DbSet<ElderFamilyMember> ElderFamilyMembers { get; set; }
 }

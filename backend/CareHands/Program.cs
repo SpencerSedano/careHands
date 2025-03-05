@@ -34,14 +34,11 @@ var app = builder.Build();
 app.MapIdentityApi<IdentityUser>();
 
 app.MapOpenApi();
-app.MapControllers();
 
 app.MapControllers();
 
 app.UseCors();
 
-// app.UseExceptionHandler("/error");
-
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Hello! The app is running");
 
 app.Run();
