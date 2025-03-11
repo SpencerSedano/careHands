@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CareHands.Controllers;
 
+//api/DeleteAccount
 [ApiController]
 [Route("api/[controller]")]
 public class DeleteAccount : ControllerBase

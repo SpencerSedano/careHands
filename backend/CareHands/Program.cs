@@ -13,7 +13,7 @@ builder.Services.AddIdentityApiEndpoints<IdentityUser>()
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<ApplicationDbContext>(opt => 
-  opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+  opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddCors(options =>
 {
