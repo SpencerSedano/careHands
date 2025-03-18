@@ -8,26 +8,17 @@ public class Elder
 {
     //Basic Info
     public int Id { get; set; }
-    public required char IdLetter { get; set; }
-    public required int ElderId { get; set; }
-    [MaxLength(25)]
-    public required string Name { get; set; }
-    [MaxLength(25)]
-    public required string LastName { get; set; }
-    public required int Age { get; set; }
-    public required int PhoneNumber { get; set; }
-    [MaxLength(45)]
-    public string? Email { get; set; }
-    [MaxLength(20)]
-    public required string Role { get; set; }
+    public char IdLetter { get; set; }
+    public int ElderId { get; set; }
+    [MaxLength(25)] public required string Name { get; set; }
+    [MaxLength(25)] public required string LastName { get; set; }
+    [Range(0, 110)] public int Age { get; set; }
+    public int PhoneNumber { get; set; }
+    [MaxLength(255)] public string? Email { get; set; }
+    [MaxLength(100)] public string? Profession { get; set; }
     public bool IsDeleted { get; set; } = false;
-    
-    //Family Info
-    public int? FamilyMemberId { get; set; }
-    
-    
+
     //Navigation Property
-    [ForeignKey("FamilyMemberId")]
-    [ValidateNever]
     public ElderFamilyMember FamilyMember { get; set; }
+    public Worker Worker { get; set; }
 }
