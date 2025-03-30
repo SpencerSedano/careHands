@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthorization();
 builder.Services.AddOpenApi();
 
-builder.Services.AddIdentityApiEndpoints<IdentityUser>()
+builder.Services.AddIdentityApiEndpoints<Worker>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllers();
@@ -29,9 +29,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-
-
-app.MapIdentityApi<IdentityUser>();
+app.MapIdentityApi<Worker>();
 
 app.MapOpenApi();
 
